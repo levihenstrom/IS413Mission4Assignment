@@ -10,12 +10,14 @@ Console.ReadLine(); // actually waits
 
 bool playGame = true;
 
+//Program Loop
 while (playGame)
 {
     string[] gameBoard = new string[9];
+
     for (int i = 0; i < gameBoard.Length; i++)
     {
-        gameBoard[i] = " "; // empty
+        gameBoard[i] = " ";
     }
 
     string openSpaces = "012345678";
@@ -23,7 +25,9 @@ while (playGame)
 
     int currentPlayer = 1; // 1 or 2
     bool gameOver = false;
-
+    
+    Console.WriteLine("Player 1 is 'O', Player 2 is 'X'");
+    //Game Loop
     while (!gameOver)
     {
         gt.PrintBoard(gameBoard);
@@ -32,7 +36,7 @@ while (playGame)
         bool inputBad = true;
         while (inputBad)
         {
-            Console.Write($"Player {currentPlayer}, Enter your choice (0-8): ");
+            Console.Write($"Player {currentPlayer}, Enter your choice (1-9): ");
             string? input = Console.ReadLine();
 
             if (!int.TryParse(input, out int move))
@@ -41,6 +45,7 @@ while (playGame)
                 continue;
             }
 
+            move = move - 1;
             if (move < 0 || move > 8)
             {
                 Console.WriteLine("Out of range. Enter 0-8.");
@@ -93,6 +98,7 @@ while (playGame)
         Console.WriteLine("Sorry, an error occurred.");
     }
 
+    //Ask to play again
     Console.Write("Do you want to play again? (y/n): ");
     string? again = Console.ReadLine();
     playGame = (again != null && again.ToLower() == "y");

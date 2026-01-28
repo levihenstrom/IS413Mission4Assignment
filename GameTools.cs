@@ -52,7 +52,7 @@ public class GameTools
             
             for (int i = 0; i < board.Length; i++)
             {
-                if (board[i] != "x" && board[i] != "o")
+                if (board[i] != "X" && board[i] != "O")
                 {
                     boardFull = false;
                     break;
