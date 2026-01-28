@@ -42,8 +42,8 @@ public class GameTools
                 // If a,b,c are the same and they're either "o" or "x", it's a win.
                 if (a == b && b == c)
                 {
-                    if (a == "o") return 1;
-                    if (a == "x") return 2;
+                    if (a == "O") return 1;
+                    if (a == "X") return 2;
                 }
             }
 
